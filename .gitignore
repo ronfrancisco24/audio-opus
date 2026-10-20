@@ -1,0 +1,50 @@
+CLAUDE.md
+docs
+
+# Node (apps/web has its own .gitignore for Next.js output)
+node_modules/
+
+# Python (services/transcriber)
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Env files (keep examples)
+.env*
+!.env.example
+
+# Job data and generated outputs
+data/
+
+# Model weights
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.tflite
+*.safetensors
+pretrained_models/
+
+# Audio and outputs, except test fixtures
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+*.webm
+*.mid
+*.midi
+*.musicxml
+!fixtures/**
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
