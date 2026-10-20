@@ -1,8 +1,18 @@
 CLAUDE.md
 docs
 
-# Node (apps/web has its own .gitignore for Next.js output)
+# Node / Next.js
 node_modules/
+/.next/
+/out/
+/build/
+/coverage/
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+*.pem
+npm-debug.log*
+.pnpm-debug.log*
 
 # Python (services/transcriber)
 __pycache__/
