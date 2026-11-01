@@ -1,0 +1,26 @@
+x-transcriber: &transcriber
+  build: services/transcriber
+  environment:
+    REDIS_URL: redis://redis:6379/0
+    STORAGE_LOCAL_DIR: /data
+  volumes:
+    - ./services/transcriber:/app
+    - ./data:/data
+  depends_on:
+    - redis
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  api:
+    <<: *transcriber
+    command: fastapi dev app/main.py --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+
+  worker:
+    <<: *transcriber
+    command: rq worker --url redis://redis:6379/0
