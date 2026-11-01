@@ -2,7 +2,7 @@
 
 An app that turns audio recordings into sheet music. A Next.js frontend uploads audio to a Python (FastAPI) service. An RQ worker transcribes the audio with pretrained models (Basic Pitch first), quantizes the notes into a score with music21, and returns MusicXML/MIDI/PDF. The browser renders the MusicXML with OpenSheetMusicDisplay.
 
-**Current phase:** Phase 0 (docs and scaffolding). See `docs/roadmap.md`. Some commands below don't work until scaffolding is done.
+**Current phase:** Phase 1 (MVP: solo instrument → single-staff score). See `docs/roadmap.md`.
 
 ## Docs: read the relevant one before changing that area
 - `docs/architecture.md`: components, repo layout, request flow, env vars, key decisions

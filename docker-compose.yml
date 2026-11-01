@@ -3,9 +3,11 @@ x-transcriber: &transcriber
   environment:
     REDIS_URL: redis://redis:6379/0
     STORAGE_LOCAL_DIR: /data
+    FIXTURES_DIR: /fixtures
   volumes:
     - ./services/transcriber:/app
     - ./data:/data
+    - ./fixtures:/fixtures:ro
   depends_on:
     - redis
 
