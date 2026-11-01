@@ -1,0 +1,33 @@
+[project]
+name = "transcriber"
+version = "0.1.0"
+description = "Audio-to-sheet-music transcription API and worker"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.162.0",
+    "pydantic-settings>=2.16.2",
+    "python-ulid>=4.1.0",
+    "redis>=8.1.0",
+    "rq>=3.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "model: loads real ML models (slow, run in Docker)",
+    "eval: accuracy suite against fixtures/ reference MIDI",
+]
+addopts = "-m 'not model and not eval'"
